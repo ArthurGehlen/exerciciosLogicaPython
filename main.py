@@ -1,4 +1,7 @@
-class Exercicios():
+import pwinput
+from getpass import getpass
+
+class Exercicios:
     def __init__(self):
         self.result_string = ""
         self.result_number = 0
@@ -190,6 +193,41 @@ class Exercicios():
                 self.result_number = round(self.result_number, 2)
 
                 return self.result_number
+
+    # Função para verificar ganhador no pedra, papel e tesoura
+    def check_winner(self, user_1_answer: str, user_2_answer: str):
+        user_1_answer.upper()
+        user_2_answer.upper()
+
+        if user_1_answer == user_2_answer:
+            self.result_string = "Empate"
+            return self.result_string
+        elif (user_1_answer == "PEDRA" and user_2_answer == "TESOURA") or (user_1_answer == "TESOURA" and user_2_answer == "PAPEL") or (user_1_answer == "PAPEL" and user_2_answer == "PEDRA"):
+            self.result_string = "Player 1 Ganhou!!!"
+            return self.result_string
+        else:
+            self.result_string = "Player 2 Ganhou!!!"
+            return self.result_string
+
+    # Faça o jogo de Jokenpô
+    def ex_19(self):
+        # self.user_input_1 = pwinput.pwinput(prompt='1° Jogador -> ')
+        self.user_input_1 = getpass("1° Jogador ->")
+        if len(self.user_input_1) > 5:
+            self.user_input_1 = pwinput.pwinput(prompt='1° Jogador -> ')
+
+        while self.user_input_1 != "Pedra" and self.user_input_1 != "Papel" and self.user_input_1 != "Tesoura":
+            print("Digite uma resposta vailda")
+            self.user_input_1 = pwinput.pwinput(prompt='1° Jogador -> ')
+
+        self.user_input_2 = pwinput.pwinput(prompt='2° Jogador ->')
+
+        while self.user_input_2 != "Pedra" and self.user_input_2 != "Papel" and self.user_input_2 != "Tesoura":
+            print("Digite uma resposta vailda")
+            self.user_input_2 = pwinput.pwinput(prompt='2° Jogador ->')
+
+        self.check_winner(self.user_input_1, self.user_input_2)
+        return self.result_string
         
 exercicio = Exercicios()
-print(exercicio.ex_18('Celsius', 'Kelvin', 4))
+print(exercicio.ex_19())

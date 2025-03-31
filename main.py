@@ -212,18 +212,16 @@ class Exercicios:
     # Faça o jogo de Jokenpô
     def ex_19(self):
         # self.user_input_1 = pwinput.pwinput(prompt='1° Jogador -> ')
-        self.user_input_1 = getpass("1° Jogador ->")
-        if len(self.user_input_1) > 5:
-            self.user_input_1 = pwinput.pwinput(prompt='1° Jogador -> ')
+        self.user_input_1 = pwinput.pwinput(prompt='1° Jogador -> ')
 
         while self.user_input_1 != "Pedra" and self.user_input_1 != "Papel" and self.user_input_1 != "Tesoura":
-            print("Digite uma resposta vailda")
+            print("Digite uma opção válida!!")
             self.user_input_1 = pwinput.pwinput(prompt='1° Jogador -> ')
 
         self.user_input_2 = pwinput.pwinput(prompt='2° Jogador ->')
 
         while self.user_input_2 != "Pedra" and self.user_input_2 != "Papel" and self.user_input_2 != "Tesoura":
-            print("Digite uma resposta vailda")
+            print("Digite uma opção válida!!")
             self.user_input_2 = pwinput.pwinput(prompt='2° Jogador ->')
 
         self.check_winner(self.user_input_1, self.user_input_2)
